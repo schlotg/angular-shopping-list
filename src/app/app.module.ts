@@ -18,7 +18,7 @@ class Test extends Component {
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'add', component: ShoppingListElementAddComponent },
-  { path: 'edit/:id', component: ShoppingListElementAddComponent },
+  { path: 'edit', component: ShoppingListElementAddComponent },
   { path: 'home', component: HomeComponent },
 
 ];

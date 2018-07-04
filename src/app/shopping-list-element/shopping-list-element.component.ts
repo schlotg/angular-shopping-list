@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ListServiceService } from '../list-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-list-element',
@@ -17,7 +18,7 @@ import { ListServiceService } from '../list-service.service';
 export class ShoppingListElementComponent implements OnInit {
   @Input() item: any;
 
-  constructor(private listService: ListServiceService) { }
+  constructor(private listService: ListServiceService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -28,7 +29,8 @@ export class ShoppingListElementComponent implements OnInit {
   }
 
   edit(id: string){
-    location.href = `edit/${id}`;
+    this.router.navigate(['/edit', { id }]);
+    //location.href = `edit/${id}`;
   }
 
 }
