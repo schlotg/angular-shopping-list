@@ -3,7 +3,7 @@ import { Item } from '../list-service.service';
 import { IdServiceService } from '../id-service.service';
 import { ListServiceService } from '../list-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-shopping-list-element-add',
@@ -33,7 +33,8 @@ export class ShoppingListElementAddComponent implements OnInit {
 
   constructor(private idService: IdServiceService,
     private listService: ListServiceService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private location: Location) {
     const id = this.route.snapshot.params.id;
     this.id = id;
     this.item = (id) ? this.listService.getItem(this.id) : {
@@ -59,7 +60,7 @@ export class ShoppingListElementAddComponent implements OnInit {
   }
 
   back() {
-    location.href = 'home';
+    this.location.back();
   }
 
 
